@@ -1,8 +1,9 @@
 static final int W_WINDOW = 600;    //ウィンドウのサイズ
 static final int H_WINDOW = 450;    //
-static final int W_CELL = 15;   //セルのサイズ
+static final int W_CELL = 50;   //セルのサイズ
 static final int EDIT_MODE = 0; //modeがこの値の時に編集モードにする
 static final int ANIMATION_MODE = 1;    //modeがこの値の時にアニメーションモードにする
+static final int FPS = 10;    //fps
 
 Cell[][] currentCells, nextCells;
 
@@ -12,7 +13,7 @@ int mode;   //モード切替用変数
 //初めに実行する部分
 void setup() {
     size(W_WINDOW, H_WINDOW);    //ウィンドウサイズを指定
-    frameRate(10);	//フレームレートの設定	
+    frameRate(FPS);	//フレームレートの設定	
     col = W_WINDOW / W_CELL;	//ウィンドウに収まる分だけ配列を用意
     row = H_WINDOW / W_CELL;
     currentCells = new Cell[col][row];
@@ -104,20 +105,19 @@ void nextGeneration() {
     for (int i=1; i<col-1; i++) {
         for (int j=1; j<row -1; j++) {
             boolean life = currentCells[i][j].getBool();
+            int count = countAliveCell(i, j);
+
             if (!life) {	//セルが死んでいる時
-                if (countAliveCell(i, j) == 3) {
+                if (count == 3) {
                     nextCells[i][j].setBool(true);	//セルが生まれる
                 }
             }
             else {
-                if (countAliveCell(i, j) >=4) {
-                    nextCells[i][j].setBool(false);	//過密により死滅
-                }
-                else if (countAliveCell(i, j) >= 2) {
-                    nextCells[i][j].setBool(true);	//生存
+                if (count >=4 || count <= 1) {
+                    nextCells[i][j].setBool(false);	//死滅
                 }
                 else {
-                    nextCells[i][j].setBool(false);	//過疎により死滅
+                    nextCells[i][j].setBool(true);	//生存
                 }
             }
         }
