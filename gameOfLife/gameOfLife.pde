@@ -1,6 +1,6 @@
 static final int W_WINDOW = 600;    //ウィンドウのサイズ
 static final int H_WINDOW = 450;    //
-static final int W_CELL = 50;   //セルのサイズ
+static final int W_CELL = 15;   //セルのサイズ
 static final int EDIT_MODE = 0; //modeがこの値の時に編集モードにする
 static final int ANIMATION_MODE = 1;    //modeがこの値の時にアニメーションモードにする
 static final int FPS = 10;    //fps
@@ -94,7 +94,7 @@ void drawField() {
 void updateCells() {
     for (int i=0; i<col; i++) {
         for (int j=0; j<row; j++) {
-            currentCells[i][j] = nextCells[i][j];
+            currentCells[i][j].setBool(nextCells[i][j].getBool());
         }
     }
 }
