@@ -77,6 +77,7 @@ void clearCell() {
     for (int i=0; i<col; i++) {
         for (int j=0; j<row; j++) {
             currentCells[i][j].setBool(false);
+            nextCells[i][j].setBool(false);
         }
     }
 }
