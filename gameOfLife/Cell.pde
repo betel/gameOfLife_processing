@@ -1,5 +1,5 @@
 class Cell {
-    final int maxLevel = 7;
+    final int maxLevel = 11;
 
     int x, y;   //セルの位置
     int w;  //セルの一辺の長さ  
@@ -16,24 +16,36 @@ class Cell {
     //セルの描画
     void drawCell() {
         if (level == 1) {   //セルの生存期間によって色を分ける
-            fill(0, 150, 0);
+            fill(0, 150, 0);    //深緑
         }
-        else if (level == 2) {
+        else if (level == 2) {  //黄緑
             fill(100, 255, 0);
         }
-        else if (level == 3) {
+        else if (level == 3) {  //黄
             fill(255, 255, 0);
         }
-        else if (level == 4) {
+        else if (level == 4) {  //橙
             fill(255, 100, 0);
         }
-        else if (level == 5) {
+        else if (level == 5) {  //赤
             fill(255, 0, 0);
         }
-        else if (level == 6) {
+        else if (level == 6) {  //桃
             fill(255, 0, 255);
         }
-        else if (level == 7) {
+        else if (level == 7) {  //紫
+            fill(100, 0, 255);
+        }
+        else if (level == 8) {  //青
+            fill(0, 0, 255);
+        }
+        else if (level == 9) {  //水色
+            fill(0, 100, 255);
+        }
+        else if (level == 10) { //シアン
+            fill(0, 255, 255);
+        }
+        else if (level == 11) { //白
             fill(255, 255, 255);
         }
         else {
@@ -58,3 +70,4 @@ class Cell {
         return level;
     }
 }
+

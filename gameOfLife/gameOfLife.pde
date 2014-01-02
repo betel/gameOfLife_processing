@@ -107,9 +107,9 @@ void keyPressed() {
         }
     }
     //銀河を生成
-    if (key == '1') galaxy(col/2-4,row/2-4);
+    if (key == '1') galaxy(col/2-4, row/2-4);
     //グライダーガンを生成  
-    if (key == '2') gliderGun(2,2);
+    if (key == '2') gliderGun(2, 2);
     //アプリケーションの終了
     if (key == 'q') exit();
 }
@@ -208,7 +208,7 @@ int countAliveCell(int i, int j) {
 }
 
 //銀河を生成
-void galaxy(int x, int y){
+void galaxy(int x, int y) {
     currentCells[x  ][y  ].setLevel(1);
     currentCells[x+1][y  ].setLevel(1);
     currentCells[x+2][y  ].setLevel(1);
@@ -267,7 +267,7 @@ void galaxy(int x, int y){
     currentCells[x+8][y+8].setLevel(1);
 }
 //グライダーガンの生成
-void gliderGun(int x, int y){
+void gliderGun(int x, int y) {
     currentCells[x+2][y+6].setLevel(1);
     currentCells[x+2][y+7].setLevel(1);
     currentCells[x+3][y+6].setLevel(1);
