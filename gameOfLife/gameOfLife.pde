@@ -1,6 +1,6 @@
-static final int W_WINDOW = 300;    //ウィンドウのサイズ
-static final int H_WINDOW = 300;    //
-static final int W_CELL = 20;   //セルのサイズ
+static final int W_WINDOW = 615;    //ウィンドウのサイズ
+static final int H_WINDOW = 420;    //
+static final int W_CELL = 15;   //セルのサイズ
 static final int EDIT_MODE = 0; //modeがこの値の時に編集モードにする
 static final int ANIMATION_MODE = 1;    //modeがこの値の時にアニメーションモードにする
 
@@ -18,7 +18,7 @@ PFont font;
 //初めに実行する部分
 void setup() {
     size(W_WINDOW, H_WINDOW);    //ウィンドウサイズを指定
-    fps = 8;       //フレームレートのデフォルトは10      
+    fps = 20;       //フレームレートのデフォルトは10      
     smooth();
 
     col = W_WINDOW / W_CELL;    //ウィンドウに収まる分だけ配列を用意
@@ -52,7 +52,7 @@ void draw() {
     if (info==1) {    //更新速度と世代の表示
         dispInfo();
     }
-    saveFrame("output-####.png");
+//    saveFrame("output-####.png");
 }
 
 //クリック時のマウスの位置からセルを特定する
@@ -109,7 +109,7 @@ void keyPressed() {
     //銀河を生成
     if (key == '1') galaxy(col/2-4, row/2-4);
     //グライダーガンを生成  
-    if (key == '2') gliderGun(2, 2);
+    if (key == '2') gliderGun(0, 1);
     //アプリケーションの終了
     if (key == 'q') exit();
 }
