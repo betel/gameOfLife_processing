@@ -133,6 +133,7 @@ void randomInit() {
             }
         }
     }
+    generation = 1;
 }
 
 //更新速度、世代の情報を表示する
