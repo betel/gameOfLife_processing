@@ -1,5 +1,5 @@
-static final int W_WINDOW = 600;    //ウィンドウのサイズ
-static final int H_WINDOW = 450;    //
+static final int W_WINDOW = 750;    //ウィンドウのサイズ
+static final int H_WINDOW = 550;    //
 static final int W_CELL = 10;   //セルのサイズ
 static final int EDIT_MODE = 0; //modeがこの値の時に編集モードにする
 static final int ANIMATION_MODE = 1;    //modeがこの値の時にアニメーションモードにする
@@ -106,6 +106,8 @@ void keyPressed() {
             info = 0;
         }
     }
+    //銀河を生成
+    if (key == '1') galaxy(col/2-4,row/2-4); 
     //アプリケーションの終了
     if (key == 'q') exit();
 }
@@ -203,4 +205,63 @@ int countAliveCell(int i, int j) {
     return count;
 }
 
+//銀河を生成
+void galaxy(int x, int y){
+    currentCells[x  ][y  ].setLevel(1);
+    currentCells[x+1][y  ].setLevel(1);
+    currentCells[x+2][y  ].setLevel(1);
+    currentCells[x+3][y  ].setLevel(1);
+    currentCells[x+4][y  ].setLevel(1);
+    currentCells[x+5][y  ].setLevel(1);
+    currentCells[x+7][y  ].setLevel(1);
+    currentCells[x+8][y  ].setLevel(1);
+
+    currentCells[x  ][y+1].setLevel(1);
+    currentCells[x+1][y+1].setLevel(1);
+    currentCells[x+2][y+1].setLevel(1);
+    currentCells[x+3][y+1].setLevel(1);
+    currentCells[x+4][y+1].setLevel(1);
+    currentCells[x+5][y+1].setLevel(1);
+    currentCells[x+7][y+1].setLevel(1);
+    currentCells[x+8][y+1].setLevel(1);
+
+    currentCells[x+7][y+2].setLevel(1);
+    currentCells[x+8][y+2].setLevel(1);
+
+    currentCells[x  ][y+3].setLevel(1);
+    currentCells[x+1][y+3].setLevel(1);
+    currentCells[x+7][y+3].setLevel(1);
+    currentCells[x+8][y+3].setLevel(1);
+
+    currentCells[x  ][y+4].setLevel(1);
+    currentCells[x+1][y+4].setLevel(1);
+    currentCells[x+7][y+4].setLevel(1);
+    currentCells[x+8][y+4].setLevel(1);
+
+    currentCells[x  ][y+5].setLevel(1);
+    currentCells[x+1][y+5].setLevel(1);
+    currentCells[x+7][y+5].setLevel(1);
+    currentCells[x+8][y+5].setLevel(1);
+
+    currentCells[x  ][y+6].setLevel(1);
+    currentCells[x+1][y+6].setLevel(1);
+
+    currentCells[x  ][y+7].setLevel(1);
+    currentCells[x+1][y+7].setLevel(1);
+    currentCells[x+3][y+7].setLevel(1);
+    currentCells[x+4][y+7].setLevel(1);
+    currentCells[x+5][y+7].setLevel(1);
+    currentCells[x+6][y+7].setLevel(1);
+    currentCells[x+7][y+7].setLevel(1);
+    currentCells[x+8][y+7].setLevel(1);
+
+    currentCells[x  ][y+8].setLevel(1);
+    currentCells[x+1][y+8].setLevel(1);
+    currentCells[x+3][y+8].setLevel(1);
+    currentCells[x+4][y+8].setLevel(1);
+    currentCells[x+5][y+8].setLevel(1);
+    currentCells[x+6][y+8].setLevel(1);
+    currentCells[x+7][y+8].setLevel(1);
+    currentCells[x+8][y+8].setLevel(1);
+}
 
