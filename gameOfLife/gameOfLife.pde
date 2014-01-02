@@ -107,7 +107,9 @@ void keyPressed() {
         }
     }
     //銀河を生成
-    if (key == '1') galaxy(col/2-4,row/2-4); 
+    if (key == '1') galaxy(col/2-4,row/2-4);
+    //グライダーガンを生成  
+    if (key == '2') gliderGun(2,2);
     //アプリケーションの終了
     if (key == 'q') exit();
 }
@@ -263,5 +265,57 @@ void galaxy(int x, int y){
     currentCells[x+6][y+8].setLevel(1);
     currentCells[x+7][y+8].setLevel(1);
     currentCells[x+8][y+8].setLevel(1);
+}
+//グライダーガンの生成
+void gliderGun(int x, int y){
+    currentCells[x+2][y+6].setLevel(1);
+    currentCells[x+2][y+7].setLevel(1);
+    currentCells[x+3][y+6].setLevel(1);
+    currentCells[x+3][y+7].setLevel(1);
+
+    currentCells[x+12][y+6].setLevel(1);
+    currentCells[x+12][y+7].setLevel(1);
+    currentCells[x+12][y+8].setLevel(1);
+
+    currentCells[x+13][y+5].setLevel(1);
+    currentCells[x+13][y+9].setLevel(1);
+
+    currentCells[x+14][y+4].setLevel(1);
+    currentCells[x+14][y+10].setLevel(1);
+
+    currentCells[x+15][y+4].setLevel(1);
+    currentCells[x+15][y+10].setLevel(1);
+
+    currentCells[x+16][y+7].setLevel(1);
+
+    currentCells[x+17][y+5].setLevel(1);
+    currentCells[x+17][y+9].setLevel(1);
+
+    currentCells[x+18][y+6].setLevel(1);
+    currentCells[x+18][y+7].setLevel(1);
+    currentCells[x+18][y+8].setLevel(1);
+
+    currentCells[x+19][y+7].setLevel(1);
+
+    currentCells[x+22][y+4].setLevel(1);
+    currentCells[x+22][y+5].setLevel(1);
+    currentCells[x+22][y+6].setLevel(1);
+
+    currentCells[x+23][y+4].setLevel(1);
+    currentCells[x+23][y+5].setLevel(1);
+    currentCells[x+23][y+6].setLevel(1);
+
+    currentCells[x+24][y+3].setLevel(1);
+    currentCells[x+24][y+7].setLevel(1);
+
+    currentCells[x+26][y+2].setLevel(1);
+    currentCells[x+26][y+3].setLevel(1);
+    currentCells[x+26][y+7].setLevel(1);
+    currentCells[x+26][y+8].setLevel(1);
+
+    currentCells[x+36][y+4].setLevel(1);
+    currentCells[x+36][y+5].setLevel(1);
+    currentCells[x+37][y+4].setLevel(1);
+    currentCells[x+37][y+5].setLevel(1);
 }
 
