@@ -142,10 +142,37 @@ void randomInit() {
 
 //更新速度、世代の情報を表示する
 void dispInfo() {
+    int[] population = countPopulation();
+    int a = 15;
+    fill(0);
+    rect(5,5,135,215);
     fill(255, 0, 0);
     textFont(font, 15);
     text("FPS : " + fps, 10, 15);
     text("Generation : " + generation, 10, 30);
+    text("Population : " + population[0], 10, 45);
+    fill(0,150,0);
+    text("Lv.01 : " + population[1],10,45 + a*1);
+    fill(100,255,0);
+    text("Lv.02 : " + population[2],10,45 + a*2);
+    fill(255,255,0);
+    text("Lv.03 : " + population[3],10,45 + a*3);
+    fill(255,100,0);
+    text("Lv.04 : " + population[4],10,45 + a*4);
+    fill(255,0,0);
+    text("Lv.05 : " + population[5],10,45 + a*5);
+    fill(255,0,255);
+    text("Lv.06 : " + population[6],10,45 + a*6);
+    fill(100,0,255);
+    text("Lv.07 : " + population[7],10,45 + a*7);
+    fill(0,0,255);
+    text("Lv.08 : " + population[8],10,45 + a*8);
+    fill(0,100,255);
+    text("Lv.09 : " + population[9],10,45 + a*9);
+    fill(0,255,255);
+    text("Lv.10 : " + population[10],10,45+ a*10);
+    fill(255,255,255);
+    text("Lv.11 : " + population[11],10,45+ a*11);
 }
 
 //全てのセルを描画する
@@ -205,6 +232,28 @@ int countAliveCell(int i, int j) {
     if (currentCells[i+1][j+1].getLevel() >=1) count++;
 
     return count;
+}
+
+//人口とその内訳を配列にまとめて返す
+int[] countPopulation(){
+    int[] population = new int[12];  //total,lv.1~11
+    int total = 0;
+    for(int i=0; i<population.length; i++){
+        population[i] = 0;   //零で初期化
+    }
+    for(int i=0; i<col; i++){
+        for(int j=0; j<row; j++){
+            int level = currentCells[i][j].getLevel();
+            for(int k=1; k<=11; k++){
+                if(level == k){
+                    population[k]++;
+                    total++;
+                }
+            }
+        }
+    }
+    population[0] = total;
+    return population;
 }
 
 //銀河を生成
