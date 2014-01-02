@@ -1,6 +1,6 @@
-static final int W_WINDOW = 750;    //ウィンドウのサイズ
-static final int H_WINDOW = 550;    //
-static final int W_CELL = 10;   //セルのサイズ
+static final int W_WINDOW = 300;    //ウィンドウのサイズ
+static final int H_WINDOW = 300;    //
+static final int W_CELL = 20;   //セルのサイズ
 static final int EDIT_MODE = 0; //modeがこの値の時に編集モードにする
 static final int ANIMATION_MODE = 1;    //modeがこの値の時にアニメーションモードにする
 
@@ -18,7 +18,7 @@ PFont font;
 //初めに実行する部分
 void setup() {
     size(W_WINDOW, H_WINDOW);    //ウィンドウサイズを指定
-    fps = 10;       //フレームレートのデフォルトは10      
+    fps = 8;       //フレームレートのデフォルトは10      
     smooth();
 
     col = W_WINDOW / W_CELL;    //ウィンドウに収まる分だけ配列を用意
@@ -47,12 +47,12 @@ void draw() {
         updateCells();
         generation++;   //世代をカウント
     }
-
     drawField();    //セルの描画
 
     if (info==1) {    //更新速度と世代の表示
         dispInfo();
     }
+    saveFrame("output-####.png");
 }
 
 //クリック時のマウスの位置からセルを特定する

@@ -46,15 +46,16 @@ class Cell {
             fill(0, 255, 255);
         }
         else if (level == 11) { //白
-            fill(255, 255, 255);
+            fill(200);
         }
         else {
-            fill(0);    //level==0、つまり死んでいる時
+            fill(255);    //level==0、つまり死んでいる時
         }
 
-        stroke(0);  //グリッド線は黒色
+        stroke(255);  //グリッド線
+//        noStroke();
         rect(x, y, w, w);
-        // ellipse(x, y, w, w);
+//        ellipse(x, y, w, w);
     }
 
     //セルの寿命を設定する
