@@ -4,7 +4,7 @@ static final int W_CELL = 10;   //セルのサイズ
 static final int EDIT_MODE = 0; //modeがこの値の時に編集モードにする
 static final int ANIMATION_MODE = 1;    //modeがこの値の時にアニメーションモードにする
 
-int fps;    //fps
+int fps;    //設定するfps
 
 Cell[][] currentCells, nextCells;
 
@@ -12,6 +12,9 @@ int col, row;   //列、行の数
 int mode;   //モード切替用変数
 int info;   //情報の表示切替用変数
 int generation; //世代を数えるための変数
+int acFPS = 0;;
+int lastFPS;
+long lastFrame = millis();
 
 PFont font;
 
@@ -149,30 +152,31 @@ void dispInfo() {
     fill(255, 0, 0);
     textFont(font, 15);
     text("FPS : " + fps, 10, 15);
-    text("Generation : " + generation, 10, 30);
-    text("Population : " + population[0], 10, 45);
+    text("Actual FPS : " + countFPS(), 10, 30);
+    text("Generation : " + generation, 10, 45);
+    text("Population : " + population[0], 10, 60);
     fill(0,150,0);
-    text("Lv.01 : " + population[1],10,45 + a*1);
+    text("Lv.01 : " + population[1],10,60 + a*1);
     fill(100,255,0);
-    text("Lv.02 : " + population[2],10,45 + a*2);
+    text("Lv.02 : " + population[2],10,60 + a*2);
     fill(255,255,0);
-    text("Lv.03 : " + population[3],10,45 + a*3);
+    text("Lv.03 : " + population[3],10,60 + a*3);
     fill(255,100,0);
-    text("Lv.04 : " + population[4],10,45 + a*4);
+    text("Lv.04 : " + population[4],10,60 + a*4);
     fill(255,0,0);
-    text("Lv.05 : " + population[5],10,45 + a*5);
+    text("Lv.05 : " + population[5],10,60 + a*5);
     fill(255,0,255);
-    text("Lv.06 : " + population[6],10,45 + a*6);
+    text("Lv.06 : " + population[6],10,60 + a*6);
     fill(100,0,255);
-    text("Lv.07 : " + population[7],10,45 + a*7);
+    text("Lv.07 : " + population[7],10,60 + a*7);
     fill(0,0,255);
-    text("Lv.08 : " + population[8],10,45 + a*8);
+    text("Lv.08 : " + population[8],10,60 + a*8);
     fill(0,100,255);
-    text("Lv.09 : " + population[9],10,45 + a*9);
+    text("Lv.09 : " + population[9],10,60 + a*9);
     fill(0,255,255);
-    text("Lv.10 : " + population[10],10,45+ a*10);
+    text("Lv.10 : " + population[10],10,60+ a*10);
     fill(255,255,255);
-    text("Lv.11 : " + population[11],10,45+ a*11);
+    text("Lv.11 : " + population[11],10,60+ a*11);
 }
 
 //全てのセルを描画する
@@ -254,6 +258,21 @@ int[] countPopulation(){
     }
     population[0] = total;
     return population;
+}
+
+//実際のFPSを返す
+int countFPS(){
+    long currentTime = millis();
+    if((currentTime - lastFrame) > 1000){
+        
+        lastFPS = acFPS;
+        lastFrame += 1000;
+        acFPS = 0;
+        return lastFPS;
+    }else{
+        acFPS++;
+        return lastFPS;
+    }
 }
 
 //銀河を生成
